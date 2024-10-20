@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Search } from 'lucide-react';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
   const handleSearch = (e) => {
@@ -14,19 +13,22 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-blue-600 text-white shadow-lg">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link to="/" className="text-2xl font-bold">NewsPulse</Link>
-        <form onSubmit={handleSearch} className="flex items-center">
+    <nav className="bg-gray-300">
+      <div className="container max-w-full mx-auto px-4 py-4 flex items-center justify-between">
+        <Link to="/" className="text-2xl font-bold">
+          NewsPulse
+        </Link>
+        <form onSubmit={handleSearch} className="d-flex" role="search">
           <input
-            type="text"
-            placeholder="Search news..."
+            className="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="px-4 py-2 rounded-l-md text-gray-800 focus:outline-none"
           />
-          <button type="submit" className="bg-blue-500 px-4 py-2 rounded-r-md hover:bg-blue-400">
-            <Search size={20} />
+          <button className="btn btn-outline-info" type="submit">
+            Search
           </button>
         </form>
       </div>

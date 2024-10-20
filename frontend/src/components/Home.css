@@ -31,7 +31,6 @@
   }
 }
 
-/* Add this to your CSS file */
 .overlay {
   transition: opacity 0.3s ease-in-out;
 }

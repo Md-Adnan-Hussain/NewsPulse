@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation, Link, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const NewsDetails = () => {
   const location = useLocation();

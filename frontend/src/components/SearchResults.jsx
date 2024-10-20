@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
-import NewsCard from "./NewsCard";
 import "./Home.css";
+import SearchResultCard from "./SearchResultCard";
 
 const SearchResults = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -17,7 +17,7 @@ const SearchResults = () => {
       setError(null);
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/news/search?q=${searchQuery}`
+          `http://localhost:3000/api/news/search?q=${searchQuery}`
         );
         setSearchResults(response.data);
       } catch (error) {
@@ -60,15 +60,16 @@ const SearchResults = () => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-12">
+      <h1 className="text-3xl font-bold mb-2">
         Search Results for "{searchQuery}"
       </h1>
+      <hr className="mb-12" />
       {searchResults.length === 0 ? (
         <p>No results found.</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="row gx-0">
           {searchResults.map((article) => (
-            <NewsCard key={article.title} article={article} />
+            <SearchResultCard key={article.title} article={article} />
           ))}
         </div>
       )}
