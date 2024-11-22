@@ -91,7 +91,7 @@ const Home = () => {
         <div className="carousel-indicators">
           {hotTopics.map((_, index) => (
             <button
-              key={index}
+              key={"btn" + index}
               type="button"
               data-bs-target="#carouselExampleCaptions"
               data-bs-slide-to={index}
@@ -106,7 +106,7 @@ const Home = () => {
             <>
               <div
                 className={`carousel-item ${index === 0 ? "active" : ""}`}
-                key={article.title}
+                key={"carousel" + index}
               >
                 <img
                   src={article.urlToImage}
@@ -150,12 +150,12 @@ const Home = () => {
 
       <h1 className="text-3xl font-bold mb-2">Latest News</h1>
       <hr className="mb-8" />
-      {categories.map((category) => (
-        <div key={category} className="mb-8">
+      {categories.map((category, index) => (
+        <div key={category + index} className="mb-8">
           <h2 className="text-2xl font-semibold mb-4 capitalize">{category}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {news[category]?.map((article) => (
-              <NewsCard key={article.title} article={article} />
+            {news[category]?.map((article, index) => (
+              <NewsCard key={"newscard" + index} article={article} />
             ))}
           </div>
         </div>

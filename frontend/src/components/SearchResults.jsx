@@ -69,7 +69,10 @@ const SearchResults = () => {
       ) : (
         <div className="row gx-0">
           {searchResults.map((article) => (
-            <SearchResultCard key={article.title} article={article} />
+            <SearchResultCard
+              key={"searchcardresults" + index}
+              article={article}
+            />
           ))}
         </div>
       )}
